@@ -33,7 +33,7 @@ public class AccountController {
 	@Autowired
 	private TransactionService transactionService;
 
-	@RequestMapping("/primaryAccount")
+	@RequestMapping(value = "/primaryAccount", method = RequestMethod.GET)
 	public String primaryAccount(Principal principal, Model model) {
 		List<PrimaryTransaction> primaryTransactionList = transactionService.findPrimaryTransactionList(principal.getName());
 		
@@ -46,7 +46,7 @@ public class AccountController {
 		return "primaryAccount";
 	}
 	
-	@RequestMapping("/savingsAccount")
+	@RequestMapping(value = "/savingsAccount", method = RequestMethod.GET)
 	public String savingsAccount(Principal principal, Model model) {
 		List<SavingsTransaction> savingsTransactionList = transactionService.findSavingsTransactionList(principal.getName());
 	       
