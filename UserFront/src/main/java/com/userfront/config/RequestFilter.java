@@ -30,10 +30,9 @@ public class RequestFilter implements Filter {
             try {
                 chain.doFilter(req, res);
             } catch(Exception e) {
-                e.printStackTrace();
+                response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             }
         } else {
-            System.out.println("Pre-flight");
             response.setHeader("Access-Control-Allow-Methods", "POST,GET,DELETE");
             response.setHeader("Access-Control-Max-Age", "3600");
             response.setHeader("Access-Control-Allow-Headers", "authorization, content-type," +
