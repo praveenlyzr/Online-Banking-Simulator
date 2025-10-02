@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +34,7 @@ public class AccountController {
 	@Autowired
 	private TransactionService transactionService;
 
-	@RequestMapping("/primaryAccount")
+	@GetMapping("/primaryAccount")
 	public String primaryAccount(Principal principal, Model model) {
 		List<PrimaryTransaction> primaryTransactionList = transactionService.findPrimaryTransactionList(principal.getName());
 		
@@ -46,7 +47,7 @@ public class AccountController {
 		return "primaryAccount";
 	}
 	
-	@RequestMapping("/savingsAccount")
+	@GetMapping("/savingsAccount")
 	public String savingsAccount(Principal principal, Model model) {
 		List<SavingsTransaction> savingsTransactionList = transactionService.findSavingsTransactionList(principal.getName());
 	       
