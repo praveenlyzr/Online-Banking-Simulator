@@ -1,4 +1,4 @@
-# Professional Online Banking - Full Stack Web Application
+# Online Banking Simulator
 
 ## Description
 
